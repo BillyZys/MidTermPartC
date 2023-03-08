@@ -15,20 +15,18 @@ public class TestUserprofile {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter your name: ");
-        String name = input.nextLine();
+        System.out.print("Please enter your name: ");
+        String userID = input.nextLine();
 
-        System.out.println("Choose your favourite genre:");
+        System.out.println("Please choose your favorite genre:");
         String[] genres = {"Comedy", "Drama", "Action", "Mystery"};
         for (int i = 0; i < genres.length; i++) {
             System.out.println((i + 1) + ". " + genres[i]);
         }
         int choice = input.nextInt();
-        input.nextLine(); //consume the remaining newline character
+        String selectedGenre = genres[choice - 1];
 
-        String genre = genres[choice - 1];
-
-        UserProfile userProfile = new UserProfile(name, genre);
-        System.out.println("Your userProfile was created!");
+        UserProfile userProfile = new UserProfile(userID, selectedGenre);
+        System.out.println("User profile created: " + userProfile.getUserID() + " - " + userProfile.getGenre());
     }
 }
